@@ -1,37 +1,30 @@
 import React from 'react';
-
 import '../UserCard.css';
 
 const UserCard = props => {
+    const cardCreator = (usr, key) => (
+            <div className="user-card" key={usr.id}>
+                <img className="user-photo" src={usr.avatar_url} alt="follower" />
+                <h2>{usr.login}</h2>
+                <p>Bio: {usr.bio}</p>
+                <p>location: {usr.location}</p>
+                <p># of followers: {usr.followers}</p>
+                <p># following: {usr.following}</p>
+                <p>
+                    <a className="user-link" href={usr.html_url}>Github Profile</a>
+                </p>
+            </div>
+    )
     return (
         <div className="card-container">
+            {cardCreator(props.user)}
             {props.followers.map((follower, key) => (
-            <div className="user-card" key={follower.id}>
-                <img className="user-photo" src={follower.avatar_url} alt="follower" />
-                <h2>{follower.login}</h2>
-                <p>Bio: {follower.bio}</p>
-                <p>location: {follower.location}</p>
-                <p># of followers: {follower.followers}</p>
-                <p># following: {follower.following}</p>
-                <p>
-                    <a className="user-link" href={follower.html_url}>Github Profile</a>
-                </p>
-            </div>
+                cardCreator(follower,key)
             ))}
-
-            <div className="user-card">
-                <img className="user-photo" src={props.user.avatar_url} alt="user" />
-                <h2>{props.user.login}</h2>
-                <p>Bio: {props.user.bio}</p>
-                <p>location: {props.user.location}</p>
-                <p># of followers: {props.user.followers}</p>
-                <p># following: {props.user.following}</p>
-                <p>
-                    <a className="user-link" href={props.user.html_url}>Github Profile</a>
-                </p>
-            </div>
+            {console.log("location",props.followers.location)}
         </div>
     );
 }
 
 export default UserCard;
+
