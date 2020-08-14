@@ -1,6 +1,7 @@
 .card-container{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user-card {
@@ -16,6 +17,14 @@
     flex-direction: column;
     box-shadow: 0 1px 6px -2px #000;
 }
+
+.followers-cards {
+    display: flex;
+    width: 95%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .user-photo {
     height: 400px;
     width: auto;

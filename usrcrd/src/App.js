@@ -66,7 +66,7 @@ getUsers = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Github Users</h1>
+        <h1>Github Users and Their Followers</h1>
         <input
           type="text"
           value={this.state.login}
